@@ -5,7 +5,7 @@
   "version": "1.0.54",
   "main": "dist/print.js",
   "types": "./index.d.ts",
-  "repository": "https://github.com/crabbly/Print.js",
+  "repository": "https://github.com/ibisheng/Print.js",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
