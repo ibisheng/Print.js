@@ -50,18 +50,23 @@ const Print = {
 
 function performPrint (iframeElement, params) {
   iframeElement.focus()
+  iframeElement.contentWindow.addEventListener('message', msg => {
+    if (msg['command'] === 'print') {
+      if (Browser.isEdge() || Browser.isIE()) {
+        try {
+          window.document.execCommand('print', false, null)
+        } catch (e) {
+          window.print()
+        }
+      } else {
+        // Other browsers
+        window.print()
+      }
+    }
+  })
+  iframeElement.contentWindow.postMessage({ 'command': 'print' }, '*')
 
   // If Edge or IE, try catch with execCommand
-  if (Browser.isEdge() || Browser.isIE()) {
-    try {
-      iframeElement.contentWindow.document.execCommand('print', false, null)
-    } catch (e) {
-      iframeElement.contentWindow.print()
-    }
-  } else {
-    // Other browsers
-    iframeElement.contentWindow.print()
-  }
 }
 
 function cleanUp (params) {
