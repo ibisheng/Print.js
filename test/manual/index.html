@@ -12,10 +12,10 @@
             showModal: true
         });
     }
-    
+
     function printPdfWithModalAndCloseCallback() {
         printJS({
-            printable: '/test/manual/test.pdf',
+            printable: 'http://cobra:9000/draft/a0d9af7f/temp/output.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=9QPAQ65R1SO1NDHNYESN%2F20190320%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190320T162954Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=f902fa303fbf0836521f3129a6ec2e354e23281b2ebc48d88847e03604504560',
             type: 'pdf',
             showModal: true,
             onPrintDialogClose: () => console.log('The print dialog was closed'),

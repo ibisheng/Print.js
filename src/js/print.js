@@ -54,13 +54,13 @@ function performPrint (iframeElement, params) {
     if (msg.data && msg.data['command'] === 'print') {
       if (Browser.isEdge() || Browser.isIE()) {
         try {
-          window.document.execCommand('print', false, null)
+          iframeElement.contentWindow.document.execCommand('print', false, null)
         } catch (e) {
-          window.print()
+          iframeElement.contentWindow.print()
         }
       } else {
         // Other browsers
-        window.print()
+        iframeElement.contentWindow.print()
       }
     }
   })
