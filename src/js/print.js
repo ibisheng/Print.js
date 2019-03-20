@@ -51,7 +51,7 @@ const Print = {
 function performPrint (iframeElement, params) {
   iframeElement.focus()
   iframeElement.contentWindow.addEventListener('message', msg => {
-    if (msg['command'] === 'print') {
+    if (msg.data && msg.data['command'] === 'print') {
       if (Browser.isEdge() || Browser.isIE()) {
         try {
           window.document.execCommand('print', false, null)
